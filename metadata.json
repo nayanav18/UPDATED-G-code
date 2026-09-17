@@ -1,0 +1,6 @@
+{
+  "name": "Enterprise Analytics AI",
+  "description": "Production-ready Enterprise Analytics AI platform with persona-aware analytics, dynamic Power BI-style builder, BigQuery metadata discovery, and pipeline intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

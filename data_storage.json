@@ -1,0 +1,209 @@
+{
+  "users": [
+    {
+      "id": "usr-demo",
+      "email": "executive@vodafone.ie",
+      "name": "Aoife Kelly",
+      "passwordHash": "demo12345",
+      "isVerified": true,
+      "role": "admin",
+      "createdAt": "2026-09-17T03:22:33.071Z"
+    }
+  ],
+  "conversations": [
+    {
+      "conversation_id": "conv-1789615375035",
+      "user_id": "usr-anon",
+      "title": "What is our customer retention r...",
+      "business_id": "vf-ireland",
+      "persona_id": "ceo",
+      "dataset_id": "KarthikRudrapati",
+      "created_at": "2026-09-17T03:22:55.035Z",
+      "updated_at": "2026-09-17T03:22:55.037Z"
+    }
+  ],
+  "messages": [
+    {
+      "message_id": "msg-1789615375035-u",
+      "conversation_id": "conv-1789615375035",
+      "role": "user",
+      "content": "What is our customer retention rate?",
+      "provider": "development_fallback",
+      "created_at": "2026-09-17T03:22:55.035Z"
+    },
+    {
+      "message_id": "msg-1789615375037-s33ek",
+      "conversation_id": "conv-1789615375035",
+      "role": "assistant",
+      "content": "### **CEO Strategic Revenue & Churn Analysis**\n*Data Source: BigQuery `KarthikRudrapati.customer_churn_and_revenue` | 2.62 MB processed in 12ms*\n\n**Executive Summary:**\nTotal recurring revenue across Irish regional clusters stands at **€24.8M** this period, led by high-margin Enterprise and SME expansion in **Dublin** and **Cork**.\n\n**Key Findings:**\n1. **Revenue Concentration:** Dublin accounts for **58.2%** of total business recurring revenue, with contract renewals trending toward 24-month commitments.\n2. **Churn Dynamics:** Overall churn dropped to **1.48%**. Highest churn pressure is concentrated in **Rolling Sim-Only** consumer segments (1.92%), while multi-play fibre accounts maintain strong stickiness (<0.85% churn).\n3. **Tenure Correlation:** Accounts with tenure greater than 18 months exhibit 3.2x higher lifetime value (LTV) and 42% lower support ticket volume.\n\n*(Note: In accordance with analytical guidelines, this is provided as textual analysis. Would you like me to visualize this data as a chart?)*",
+      "intent": "analysis",
+      "kpis": [
+        {
+          "label": "Quarterly Revenue",
+          "value": "€24.8M",
+          "change": "+5.4% YoY",
+          "trend": "up"
+        },
+        {
+          "label": "Active Subscribers",
+          "value": "1.42M",
+          "change": "+2.1% MoM",
+          "trend": "up"
+        },
+        {
+          "label": "Overall Churn Rate",
+          "value": "1.48%",
+          "change": "-0.14% vs Q1",
+          "trend": "up"
+        },
+        {
+          "label": "Avg Customer CSAT",
+          "value": "8.4 / 10",
+          "change": "+0.3 pts",
+          "trend": "up"
+        }
+      ],
+      "sql": "SELECT customer_id, month, region, customer_segment, revenue, churn_flag, tenure_months, contract_type\nFROM `vf-grp-gbissdbx-dev-1.KarthikRudrapati.customer_churn_and_revenue`\nLIMIT 5;",
+      "query_result": [
+        {
+          "customer_id": "VF-IE-98214",
+          "month": "2026-05",
+          "region": "Dublin",
+          "customer_segment": "Enterprise",
+          "revenue": 420.5,
+          "churn_flag": 0,
+          "tenure_months": 34,
+          "contract_type": "24-Month",
+          "satisfaction_score": 8.8
+        },
+        {
+          "customer_id": "VF-IE-61042",
+          "month": "2026-05",
+          "region": "Cork",
+          "customer_segment": "SME",
+          "revenue": 165,
+          "churn_flag": 0,
+          "tenure_months": 18,
+          "contract_type": "12-Month",
+          "satisfaction_score": 7.9
+        },
+        {
+          "customer_id": "VF-IE-77419",
+          "month": "2026-05",
+          "region": "Galway",
+          "customer_segment": "Consumer",
+          "revenue": 64.99,
+          "churn_flag": 1,
+          "tenure_months": 8,
+          "contract_type": "Rolling Sim-Only",
+          "satisfaction_score": 5.2
+        },
+        {
+          "customer_id": "VF-IE-82910",
+          "month": "2026-06",
+          "region": "Dublin",
+          "customer_segment": "Enterprise",
+          "revenue": 445,
+          "churn_flag": 0,
+          "tenure_months": 35,
+          "contract_type": "24-Month",
+          "satisfaction_score": 9.1
+        },
+        {
+          "customer_id": "VF-IE-49201",
+          "month": "2026-06",
+          "region": "Limerick",
+          "customer_segment": "Consumer",
+          "revenue": 59.99,
+          "churn_flag": 0,
+          "tenure_months": 12,
+          "contract_type": "12-Month",
+          "satisfaction_score": 8
+        }
+      ],
+      "suggested_followups": [
+        "Show me a chart of revenue by region",
+        "Compare Dublin churn rate with Cork",
+        "Would you like me to visualize this?"
+      ],
+      "provider": "gemini",
+      "created_at": "2026-09-17T03:22:55.037Z"
+    }
+  ],
+  "dashboards": [],
+  "shares": [],
+  "pipeline": [
+    {
+      "id": "pipe-1",
+      "name": "5G Standalone Core Migration",
+      "persona": "CEO",
+      "business_area": "Revenue",
+      "dataset_id": "KarthikRudrapati",
+      "status": "active",
+      "date": "2026-Q3",
+      "metric_target": "€12.5M New Enterprise ARR",
+      "metric_current": "€8.2M contracted",
+      "details": "Transitioning Tier 1 enterprise customers to private 5G network slicing."
+    },
+    {
+      "id": "pipe-2",
+      "name": "Q3 Fibre Upgrade Acquisition Drive",
+      "persona": "Marketing Head",
+      "business_area": "Marketing",
+      "dataset_id": "KarthikRudrapati",
+      "status": "active",
+      "date": "2026-09",
+      "metric_target": "4,500 new consumer lines",
+      "metric_current": "3,820 acquired (85%)",
+      "details": "Omnichannel promo pushing 1Gbps Fibre with bundled SIM for families."
+    },
+    {
+      "id": "pipe-3",
+      "name": "Smart Business IoT Plan Modernization",
+      "persona": "Product Manager",
+      "business_area": "Products",
+      "dataset_id": "KarthikRudrapati",
+      "status": "in_review",
+      "date": "2026-10",
+      "metric_target": "€95 ARPU / connected node",
+      "metric_current": "€85.20 current ARPU",
+      "details": "Introducing telemetry AI add-on for fleet management enterprise clients."
+    },
+    {
+      "id": "pipe-4",
+      "name": "Proactive Churn Prevention Engine",
+      "persona": "Operations Manager",
+      "business_area": "Retention",
+      "dataset_id": "KarthikRudrapati",
+      "status": "active",
+      "date": "2026-09",
+      "metric_target": "Reduce churn below 1.4%",
+      "metric_current": "1.62% current monthly churn",
+      "details": "Triggering automated customer success retention offers when latency tickets exceed 2."
+    },
+    {
+      "id": "pipe-5",
+      "name": "Regional Cell Tower Backhaul Overhaul",
+      "persona": "Operations Manager",
+      "business_area": "Operations",
+      "dataset_id": "KarthikRudrapati",
+      "status": "planned",
+      "date": "2026-Q4",
+      "metric_target": "99.99% network SLA compliance",
+      "metric_current": "99.4% current SLA",
+      "details": "Upgrading West of Ireland optical backhaul to support increased summer tourism traffic."
+    },
+    {
+      "id": "pipe-6",
+      "name": "BigQuery Automated Dimension Anomaly Alerts",
+      "persona": "Developer Team",
+      "business_area": "Pipeline",
+      "dataset_id": "KarthikRudrapati",
+      "status": "completed",
+      "date": "2026-09",
+      "metric_target": "Sub-minute data quality validation",
+      "metric_current": "0.4s p99 validation latency",
+      "details": "Cloud Pub/Sub listener verifying schema consistency across incoming CDR partitions."
+    }
+  ]
+}
